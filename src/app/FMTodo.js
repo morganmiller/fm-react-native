@@ -21,7 +21,7 @@ export default class FMTodo extends Component {
     console.log(this.state)
     return (
       <View style={styles.container}>
-        <TextInput style={{height: 60, backgroundColor: 'red'}} onChange={this.handleChange.bind(this)} value={this.state.newTodo}/>
+        <TextInput style={{height: 60, backgroundColor: 'red'}} onChangeText={this.handleChange.bind(this)} value={this.state.newTodo}/>
         <TouchableHighlight onPress={this.handlePress.bind(this)}>
           <Text>tap me</Text>
         </TouchableHighlight>
@@ -29,9 +29,8 @@ export default class FMTodo extends Component {
       </View>
     );
   }
-  handleChange(e) {
-    let value = e.nativeEvent.text;
-    this.setState({newTodo: value});
+  handleChange(text) {
+    this.setState({newTodo: text});
   }
   handlePress(e) {
     let todos = this.state.todos;
