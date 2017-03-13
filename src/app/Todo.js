@@ -8,17 +8,15 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-export default class FMTodo extends Component {
+export default class Todo extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [1,2,3],
+      todos: [],
       newTodo: ''
     }
   }
   render() {
-    console.log('STATE:')
-    console.log(this.state)
     return (
       <View style={styles.container}>
         <TextInput style={{height: 60, backgroundColor: 'red'}} onChangeText={this.handleChange.bind(this)} value={this.state.newTodo}/>
@@ -38,24 +36,3 @@ export default class FMTodo extends Component {
     this.setState({todos: todos, newTodo: ''});
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('FMTodo', () => FMTodo);
